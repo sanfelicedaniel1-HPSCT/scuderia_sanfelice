@@ -10,14 +10,14 @@ from openf1_client import (
 # set_page_config controls the browser tab title, icon, and layout.
 # layout="wide" uses the full browser width instead of a narrow centered column.
 st.set_page_config(
-    page_title="Scuderia San Felice",
+    page_title="Scuderia Sanfelice",
     page_icon="🏎️",
     layout="wide"
 )
 
 # ── Title ─────────────────────────────────────────────────────────────────────
 # st.title() renders a large H1 heading on the page.
-st.title("🏎️ Scuderia San Felice — F1 Dashboard")
+st.title("🏎️ Scuderia Sanfelice — F1 Dashboard")
 
 # ── Sidebar controls ──────────────────────────────────────────────────────────
 # st.sidebar is a panel on the left. Any Streamlit widget placed inside it
@@ -76,9 +76,10 @@ with tab_drivers:
 
         # Pick only the columns we care about, and rename them to be readable.
         df = df[["driver_number", "name_acronym", "full_name", "team_name"]].rename(columns={
-            "driver_number": "#",
-            "name_acronym": "Code",
+            "headshot_url": "Photo",
             "full_name": "Name",
+            "driver_number": "Driver #",
+            "name_acronym": "Code",
             "team_name": "Team"
         })
 
