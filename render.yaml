@@ -1,0 +1,9 @@
+services:
+  - type: web               # This is a web service (as opposed to a background worker)
+    name: scuderia-dashboard
+    runtime: python         # Use the Python runtime
+    buildCommand: pip install -r requirements.txt   # Run this once at deploy time
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    # --server.port $PORT  → Render sets the $PORT variable; we pass it to Streamlit
+    # --server.address 0.0.0.0 → Makes Streamlit listen on all network interfaces,
+    #                             not just localhost — required for Render to reach it
